@@ -32,4 +32,11 @@ public class CustomerController {
         return ResponseEntity.ok(customerService.findAll());
     }
 
+    @DeleteMapping("/delete/{custID}")
+    public ResponseEntity<String> deleteCustomer(@PathVariable Integer custID) {
+        customerService.deleteById(custID);
+        return ResponseEntity.ok("Customer deleted successfully");
+    }
+
+
 }

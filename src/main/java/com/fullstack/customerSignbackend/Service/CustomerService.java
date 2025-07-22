@@ -12,7 +12,6 @@ import java.util.List;
 public class CustomerService {
 
     private  final CustomerRepository customerRepository;
-
     public Customer signUp(Customer customer){
         return customerRepository.save(customer);
     }
@@ -20,13 +19,10 @@ public class CustomerService {
     public boolean signIn(String custEmailId, String custPassword){
 
         boolean flag = false;
-
         Customer customer = customerRepository.findByCustEmailIdAndCustPassword(custEmailId, custPassword);
-
         if(customer!=null){
             flag = true;
         }
-
         return flag;
     }
 
@@ -35,5 +31,8 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
+    public void deleteById(Integer custID) {
+        customerRepository.deleteById(custID);
+    }
 
 }
